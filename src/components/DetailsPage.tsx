@@ -1,9 +1,8 @@
-import { Avatar, Stack, Typography, Card } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Avatar, Stack, Typography } from "@mui/material";
 import Cards from "./Cards";
-
 const DetailsPage = () => {
-  const { id } = useParams(); // Extract the ID from the route
+
+  // Extract the ID from the route
 
   return (
     <div>
