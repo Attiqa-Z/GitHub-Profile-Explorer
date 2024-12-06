@@ -11,7 +11,7 @@ function App() {
     },
     {
       path: "/details/:id",
-      element: <DetailsPage />,
+      element: <DetailsPage/>,
     },
   ]);
 
