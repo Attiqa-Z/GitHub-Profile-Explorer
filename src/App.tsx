@@ -1,7 +1,6 @@
-import DetailsPage from "./components/Detailspage";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
+import DetailsPage from "./components/DetailsPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,14 +17,6 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-
-      {/* <div className="card">
-  <Navbar/>
-  
-<MuiCard/>
-<MuiCard/>
-<MuiCard/>
-  </div>     */}
     </>
   );
 }
