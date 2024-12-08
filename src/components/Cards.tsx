@@ -3,6 +3,7 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 const Cards = () => {
 
   return (
+          <Box width="auto" height='auto' sx={{ border: 1, display: "block"  }}>
           <Box width="600px" height='100px' sx={{ border: 1, margin: "10px" }}>
         <Card sx={{ position: "relative", height:'100px' }}>
           <CardContent >
@@ -22,6 +23,7 @@ const Cards = () => {
             </Typography>
           </CardContent>
         </Card>
+      </Box>
       </Box>
   );
 };

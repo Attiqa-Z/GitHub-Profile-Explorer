@@ -2,7 +2,6 @@ import { Avatar, Stack, Typography } from "@mui/material";
 import Cards from "./Cards";
 const DetailsPage = () => {
 
-  // Extract the ID from the route
 
   return (
     <div>

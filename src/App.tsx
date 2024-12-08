@@ -1,7 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import DetailsPage from "./components/DetailsPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+const queryClient = new QueryClient();
 function App() {
   const router = createBrowserRouter([
     {
@@ -10,13 +13,16 @@ function App() {
     },
     {
       path: "/details/:id",
-      element: <DetailsPage/>,
+      element: <DetailsPage />,
     },
   ]);
 
   return (
     <>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </>
   );
 }
