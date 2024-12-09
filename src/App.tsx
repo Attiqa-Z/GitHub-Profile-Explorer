@@ -23,6 +23,7 @@ function App() {
         <RouterProvider router={router} />
         <ReactQueryDevtools />
       </QueryClientProvider>
+      
     </>
   );
 }
