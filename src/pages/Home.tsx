@@ -1,19 +1,41 @@
-import MuiCard from "../components/MuiCard"
-import Navbar from "../components/Navbar"
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import MuiCard from "../components/MuiCard";
+import { Box, Typography } from "@mui/material";
 
-const Home = () => {
+const HomePage = () => {
+  const [users, setUsers] = useState<any[]>([]);
+
+  const handleSearchResults = (data: any) => {
+    setUsers(data); 
+  };
+
   return (
-   
-       <>
-          <MuiCard id={[1]} />
-          <MuiCard id={[2]}/>
-          <MuiCard id={[3]}/>
-          <Navbar/>
-          
-        </>
-    
-  )
-}
+    <Box>
+      {/*  handleSearchResults to Navbar */}
+      <Navbar onSearch={handleSearchResults} />
 
-export default Home
+      {/* Render Cards */}
+      <Box display="flex" flexWrap="wrap" justifyContent="center" marginTop="100px">
+        {users.length > 0 ? (
+          users.map((user) => (
+            <MuiCard
+              key={user.id}
+              user={{
+                id: user.id,
+                login: user.login,
+                avatar_url: user.avatar_url,
+                repositories: Math.floor(Math.random() * 100), // Mock repository count
+              }}
+            />
+          ))
+        ) : (
+          <Typography>No users found. Try searching for a different name.</Typography>
+        )}
+      </Box>
+    </Box>
+  );
+};
+
+export default HomePage;
 
