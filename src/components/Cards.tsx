@@ -17,9 +17,7 @@ const Cards = () => {
                 height:'100px'
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
-              tempora fuga quod temporibus, eos vel quas eaque at doloremque
-              quisquam, repudiandae vitae?
+            
             </Typography>
           </CardContent>
         </Card>
