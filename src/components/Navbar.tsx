@@ -4,7 +4,7 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { searchUser } from "../api/search";
 
-const Navbar = ({ onSearch }: { onSearch: (data: any) => void }) => { // Added onSearch prop
+const Navbar = ({ onSearch }: { onSearch: (data:string) => void }) => { 
   const [name, setName] = React.useState("");
   const [search, setSearch] = React.useState("");
 

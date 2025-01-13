@@ -21,4 +21,4 @@ client.interceptors.response.use(onSuccess, async function (error) {
   return Promise.reject(error);
 });
 
-export default client;
+export default client;
