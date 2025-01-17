@@ -26,7 +26,7 @@ const DetailsPage = () => {
           left: "60px",
         }}
       >
-        Attiqa Zaki
+        Attiqa Z
       </Typography>
       <Typography
         variant="body1"
