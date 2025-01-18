@@ -26,7 +26,7 @@ const DetailsPage = () => {
           left: "60px",
         }}
       >
-        Attiqa Z
+        Attiqa Zaki
       </Typography>
       <Typography
         variant="body1"
@@ -37,7 +37,7 @@ const DetailsPage = () => {
           left: "60px",
         }}
       >
-        The number of Repositories is 30.
+        The number of Repositories is 40.
       </Typography>
 
       <>
