@@ -5,7 +5,6 @@ const client = axios.create({
   baseURL: "https://api.github.com",
 });
 
-
 const onSuccess = function (response: AxiosResponse) {
   console.debug("Request Successful!", response);
   return response.data;
