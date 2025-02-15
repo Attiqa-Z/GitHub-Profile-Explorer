@@ -29,7 +29,24 @@ const HomePage = () => {
             />
           ))
         ) : (
-          <Typography>No users found. Searching for a different name.</Typography>
+<Typography
+  sx={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "black",
+    padding: "12px 20px",
+    borderRadius: "10px",
+    width: "fit-content",
+    margin: "auto",
+    mt: 3,
+  }}
+>
+  🤷‍♂️ No users found. Try searching for a different name.
+</Typography>
         )}
       </Box>
     </Box>

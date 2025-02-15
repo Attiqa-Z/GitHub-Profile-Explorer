@@ -1,10 +1,10 @@
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { searchUser } from "../api/search";
 
-const Navbar = ({ onSearch }: { onSearch: (data:string) => void }) => { 
+const Navbar = ({ onSearch }: { onSearch: (data: string) => void }) => {
   const [name, setName] = React.useState("");
   const [search, setSearch] = React.useState("");
 
@@ -16,10 +16,10 @@ const Navbar = ({ onSearch }: { onSearch: (data:string) => void }) => {
 
   React.useEffect(() => {
     if (!isLoading && data?.items) {
-      console.log(data?.items); 
-      onSearch(data.items); 
+      console.log(data?.items);
+      onSearch(data.items);
     }
-  }, [data, isLoading]);
+  }, [data, isLoading, onSearch]);
 
   return (
     <Box
@@ -28,37 +28,40 @@ const Navbar = ({ onSearch }: { onSearch: (data:string) => void }) => {
         alignItems: "center",
         justifyContent: "center",
         gap: "10px",
-        padding: "4px",
-        margin: "20px",
-        top: "30px",
+        padding: "12px",
+        backgroundColor: "#333", 
         position: "fixed",
+        top: "0",
+        width: "100%",
+        zIndex: 1000,
       }}
     >
-      <input
-        type="text"
+      <TextField
+        variant="outlined"
         value={name}
-        onChange={(e) => setName(e.target.value)} // Fixed setName to update state correctly
-        placeholder="Search Here"
-        style={{
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Search here..."
+        sx={{
           width: "300px",
-          padding: "8px",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
+          backgroundColor: "#fff",
+          borderRadius: "8px",
         }}
       />
       <Button
         variant="contained"
         onClick={() => setSearch(name)}
-        disableRipple
-        disableElevation
-        style={{
-          // textTransform: 'none',
-          padding: "3px 12px",
+        sx={{
           backgroundColor: "#1976d2",
-          color: "#fff",
+          color: "white",
+          fontWeight: "bold",
+          borderRadius: "20px",
+          px: 3,
+          "&:hover": {
+            backgroundColor: "#00bcd4",
+          },
         }}
       >
-        Button
+        Search
       </Button>
     </Box>
   );
