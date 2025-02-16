@@ -1,54 +1,36 @@
-import { Avatar, Stack, Typography } from "@mui/material";
+import { Avatar, Stack, Typography, Card, CardContent, Box, Container } from "@mui/material";
 import Cards from "./Cards";
+
 const DetailsPage = () => {
-
-
   return (
-    <div>
-      <Stack
-        sx={{
-          position: "absolute",
-          top: "100px",
-          left: "10px",
-          variant: "contained",
-        }}
-      >
-        <Avatar src="/My.image.jpeg" alt="Myimage" />
-      </Stack>
-      <Typography
-        gutterBottom
-        variant="h6"
-        color="black"
-        component="div"
-        sx={{
-          position: "absolute",
-          top: "100px",
-          left: "60px",
-        }}
-      >
-        Attiqa Zaki
-      </Typography>
-      <Typography
-        variant="body1"
-        color="black"
-        sx={{
-          position: "absolute",
-          top: "130px",
-          left: "60px",
-        }}
-      >
-        The number of Repositories is 40.
-      </Typography>
+    <Container maxWidth="md">
+      {/* Profile Section */}
+      <Card sx={{ p: 2, mt: 4, display: "flex", alignItems: "center", gap: 2, boxShadow: 3 }}>
+        <Avatar src="/My.image.jpeg" alt="Myimage" sx={{ width: 56, height: 56 }} />
+        <Box>
+          <Typography variant="h6" fontWeight="bold">
+            Attiqa Zaki
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            The number of Repositories is 40.
+          </Typography>
+        </Box>
+      </Card>
 
-      <>
-        {" "}
-        <Cards />
-        <Cards />
-        <Cards />
-      </>
-      {/* <><Card/>{id}</> */}
-      {/* You can fetch or display more details for this specific ID */}
-    </div>
+      {/* Cards Section */}
+      <Card sx={{ mt: 3, p: 2, boxShadow: 3 }}>
+        <CardContent>
+          <Typography variant="h6" textAlign="center" fontWeight="bold">
+            Projects
+          </Typography>
+          <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
+            <Cards />
+            <Cards />
+            <Cards />
+          </Stack>
+        </CardContent>
+      </Card>
+    </Container>
   );
 };
 
