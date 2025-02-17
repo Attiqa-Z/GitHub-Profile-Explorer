@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import DetailsPage from "./components/DetailsPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import NotFoundPage from "./components/NotFoundPage";
 
 const queryClient = new QueryClient();
 function App() {
@@ -10,6 +11,7 @@ function App() {
     {
       path: "/",
       element: <Home />,
+      errorElement: <NotFoundPage/>
     },
     {
       path: "/details/:id",
