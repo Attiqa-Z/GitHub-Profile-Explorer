@@ -18,7 +18,7 @@ const MuiCard = ({
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate(`/details/${user.id}`);
+    navigate(`/details/${user.login}`);
   };
 
   return (
@@ -34,7 +34,7 @@ const MuiCard = ({
         },
       }}
     >
-            <CardHeader
+      <CardHeader
         title={
           <Stack direction="row" alignItems="center" spacing={2}>
             <Avatar
@@ -77,7 +77,8 @@ const MuiCard = ({
             borderRadius: "20px",
             px: 3,
             "&:hover": {
-              backgroundColor: "#00bcd4",
+              backgroundColor: "white",
+              color: "#1976d2",
             },
           }}
         >
