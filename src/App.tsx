@@ -14,7 +14,7 @@ function App() {
       errorElement: <NotFoundPage/>
     },
     {
-      path: "/details/:id",
+      path: "/details/:username",
       element: <DetailsPage />,
     },
   ]);

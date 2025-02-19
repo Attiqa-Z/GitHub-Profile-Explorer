@@ -1,41 +1,34 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
-import { CircularProgress, Stack, Avatar, Typography } from "@mui/material";
+import axios from "axios";
+import {  Stack, Avatar, Typography } from "@mui/material";
 
 const DetailsPage = () => {
-  const { user:username } = useParams();
-  const [userData, setuserData] = useState<any>(null);
-  const [loading, setloading] = useState(true);
+  const { username } = useParams();
+  const [userData, setUserData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  if (username) {
-    axios
-      .get(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        setuserData (response.data);
-        setloading(false);
-      })
-      .catch((error) => {
-        console.error("Error to find this", error);
-      })
-      .finally(() => {
-        setloading(true); 
-      });
-  }
-}, [username]);
+  useEffect(() => {
+    if (username) {
+      axios
+        .get(`https://api.github.com/users/${username}`)
+        .then((response) => {
+          setUserData(response.data);
+          setLoading(false);
+        }) 
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+          setLoading(false);
+        })
+      .finally(() => setLoading(false)); 
+    };
+
+  }, [username]);
 
 
-if (loading) {
-  return (
-    <Stack alignItems="center" justifyContent="center" sx={{ height: "100vh" }}>
-        <CircularProgress />
-        <Typography variant="h6" sx={{ mt: 2 }}>
-          Loading user data..
-        </Typography>
-      </Stack>
-  );
-}
+  if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error}</p>;
+
 return (
   <Stack spacing={2} sx={{ padding: "20px", textAlign: "center" }}>
     <Avatar src={userData?.avatar_url} alt={userData?.login} sx={{ width: 100, height: 100, margin: "auto" }} />
