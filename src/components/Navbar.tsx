@@ -4,7 +4,13 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { searchUser } from "../api/search";
 
-const Navbar = ({ onSearch }: { onSearch: (data: string) => void }) => {
+const Navbar = ({
+  onSearch,
+  toggleTheme,
+}: {
+  onSearch: (data: string) => void;
+  toggleTheme: () => void;
+}) => {
   const [name, setName] = React.useState("");
   const [search, setSearch] = React.useState("");
 
@@ -29,7 +35,7 @@ const Navbar = ({ onSearch }: { onSearch: (data: string) => void }) => {
         justifyContent: "center",
         gap: "10px",
         padding: "12px",
-        backgroundColor: "#333", 
+        backgroundColor: "#333",
         position: "fixed",
         top: "0",
         width: "100%",
@@ -62,6 +68,23 @@ const Navbar = ({ onSearch }: { onSearch: (data: string) => void }) => {
         }}
       >
         Search
+      </Button>
+      <Button
+        variant="outlined"
+        onClick={toggleTheme}
+        sx={{
+          color: "#fff",
+          borderColor: "#fff",
+          fontWeight: "bold",
+          borderRadius: "20px",
+          px: 3,
+          "&:hover": {
+            borderColor: "#00bcd4",
+            color: "#00bcd4",
+          },
+        }}
+      >
+        Toggle Theme
       </Button>
     </Box>
   );
