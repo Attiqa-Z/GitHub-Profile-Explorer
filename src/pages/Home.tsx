@@ -1,42 +1,30 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import MuiCard from "../components/MuiCard";
-import { Box, Typography, IconButton } from "@mui/material";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
-
+import { Box, Typography } from "@mui/material";
+import SearchBar from "../components/Search"; 
+import { IconButton } from '@mui/material';
+import { DarkMode, LightMode} from "@mui/icons-material";
 const HomePage = () => {
   const [users, setUsers] = useState<any[]>([]);
+
+  // Restore theme preference from localStorage
   const [darkMode, setDarkMode] = useState(() => {
     const stored = localStorage.getItem("darkMode");
     return stored === "true";
   });
 
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
-
-  const toggleTheme = () => {
-    setDarkMode((prev) => {
-      const newMode = !prev;
-      localStorage.setItem("darkMode", newMode.toString());
-      return newMode;
-    });
-  };
-
-  const handleSearchResults = (data: any) => {
+  // Update user list based on search
+  const handleSearchResults = (data: any[]) => {
     setUsers(data);
   };
 
   return (
     <Box>
-      {/* Theme Toggle Button in top-right */}
+      {/* Uncomment for future theme toggle feature */}
+      
       <IconButton
-        onClick={toggleTheme}
+        onClick={() => setDarkMode(!darkMode)}
         sx={{
           position: "fixed",
           top: 10,
@@ -48,12 +36,20 @@ const HomePage = () => {
           },
         }}
       >
-        {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+        {darkMode ? <LightMode /> : <DarkMode/>}
       </IconButton>
+     
 
-      <Navbar onSearch={handleSearchResults} />
+      {/* Navbar */}
+      <Navbar />
 
-      <Box display="flex" flexWrap="wrap" justifyContent="center" marginTop="100px">
+      {/* Search Bar */}
+      <Box>
+        <SearchBar onSearch={handleSearchResults} />
+      </Box>
+
+      {/* User Cards */}
+      <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
         {users.length > 0 ? (
           users.map((user) => (
             <MuiCard
@@ -69,18 +65,13 @@ const HomePage = () => {
         ) : (
           <Typography
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
               fontSize: "18px",
               fontWeight: "bold",
               color: "black",
               padding: "12px 20px",
               borderRadius: "10px",
-              width: "fit-content",
-              margin: "auto",
-              mt: 3,
+              marginTop: "40px",
+              textAlign: "center",
             }}
           >
             🤷‍♂️ No users found. Try searching for a different name.
