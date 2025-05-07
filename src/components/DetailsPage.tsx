@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {  Stack, Avatar, Typography } from "@mui/material";
+import Navbar from "./Navbar";
 
 const DetailsPage = () => {
   const { username } = useParams();
@@ -31,6 +32,7 @@ const DetailsPage = () => {
 
 return (
   <Stack spacing={2} sx={{ padding: "20px", textAlign: "center" }}>
+    <Navbar onSearch={() => {}} />
     <Avatar src={userData?.avatar_url} alt={userData?.login} sx={{ width: 100, height: 100, margin: "auto" }} />
     <Typography variant="h5">{userData?.name || userData?.login}</Typography>
     <Typography variant="body1">About me: {userData?.bio || "No bio available"}</Typography>

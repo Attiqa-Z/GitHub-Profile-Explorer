@@ -7,8 +7,8 @@ interface NavbarProps {
   onSearch: (data: any[]) => void;
   title?: string;
 }
-// const navigate = useNavigate();
 const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) => {
+  const navigate = useNavigate();
   return (
     <Box
       component="header"
@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) =>
             //   color: "#00bcd4",
             // },
           }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
         >
           Home
         </Typography>
@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) =>
             //   color: "#00bcd4",
             // },
           }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/about")}
         >
           About
         </Typography>

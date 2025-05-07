@@ -21,9 +21,10 @@ const HomePage = () => {
 
   return (
     <Box>
+       <Navbar />
       {/* Uncomment for future theme toggle feature */}
       
-      <IconButton
+      {/* <IconButton
         onClick={() => setDarkMode(!darkMode)}
         sx={{
           position: "fixed",
@@ -37,11 +38,11 @@ const HomePage = () => {
         }}
       >
         {darkMode ? <LightMode /> : <DarkMode/>}
-      </IconButton>
+      </IconButton> */}
      
 
       {/* Navbar */}
-      <Navbar />
+     
 
       {/* Search Bar */}
       <Box>
