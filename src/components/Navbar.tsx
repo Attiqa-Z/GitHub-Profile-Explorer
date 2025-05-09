@@ -7,8 +7,14 @@ interface NavbarProps {
   onSearch: (data: any[]) => void;
   title?: string;
 }
-const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  title = "GitHub Profile Explorer",
+}) => {
   const navigate = useNavigate();
+
+  const handleButtonClick = (path: string) => {
+    navigate(path);
+  };
   return (
     <Box
       component="header"
@@ -25,28 +31,23 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) =>
         zIndex: 1000,
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-        <img 
-          src="/images.png" 
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <img
+          src="/images.png"
           alt="Logo"
-          style={{ height: '20px', width: '20px' }}
+          style={{ height: "20px", width: "20px" }}
         />
         <Typography variant="body1" color="white">
           {title}
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', gap: 3 }}>
+      <Box sx={{ display: "flex", gap: 3 }}>
         <Typography
           sx={{
             color: "#fff",
             cursor: "pointer",
-            // fontWeight: "bold",
-            // "&:hover": {
-            //   textDecoration: "underline",
-            //   color: "#00bcd4",
-            // },
           }}
-          onClick={() => navigate("/home")}
+          onClick={() => handleButtonClick("/")}
         >
           Home
         </Typography>
@@ -60,13 +61,14 @@ const Navbar: React.FC<NavbarProps> = ({ title = 'GitHub Profile Explorer' }) =>
             //   color: "#00bcd4",
             // },
           }}
-          onClick={() => navigate("/about")}
+          // onClick={() => handleButtonClick("/about")}
+          onClick={() => handleButtonClick("/About")}
         >
           About
         </Typography>
       </Box>
     </Box>
-  );  
+  );
 };
 
 export default Navbar;

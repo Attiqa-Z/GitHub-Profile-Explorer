@@ -1,18 +1,16 @@
-import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import { useState } from "react";
+// import Navbar from "../components/Navbar";
 import MuiCard from "../components/MuiCard";
 import { Box, Typography } from "@mui/material";
-import SearchBar from "../components/Search"; 
-import { IconButton } from '@mui/material';
-import { DarkMode, LightMode} from "@mui/icons-material";
+import SearchBar from "../components/Search";
 const HomePage = () => {
   const [users, setUsers] = useState<any[]>([]);
 
   // Restore theme preference from localStorage
-  const [darkMode, setDarkMode] = useState(() => {
-    const stored = localStorage.getItem("darkMode");
-    return stored === "true";
-  });
+  // const [darkMode, setDarkMode] = useState(() => {
+  //   const stored = localStorage.getItem("darkMode");
+  //   return stored === "true";
+  // });
 
   // Update user list based on search
   const handleSearchResults = (data: any[]) => {
@@ -21,9 +19,9 @@ const HomePage = () => {
 
   return (
     <Box>
-       <Navbar />
+      {/* <Navbar /> */}
       {/* Uncomment for future theme toggle feature */}
-      
+
       {/* <IconButton
         onClick={() => setDarkMode(!darkMode)}
         sx={{
@@ -39,10 +37,8 @@ const HomePage = () => {
       >
         {darkMode ? <LightMode /> : <DarkMode/>}
       </IconButton> */}
-     
 
       {/* Navbar */}
-     
 
       {/* Search Bar */}
       <Box>
@@ -59,7 +55,7 @@ const HomePage = () => {
                 id: user.id,
                 login: user.login,
                 avatar_url: user.avatar_url,
-                repositories: Math.floor(Math.random() * 50),
+                // repositories: Math.floor(Math.random() * 50),
               }}
             />
           ))
