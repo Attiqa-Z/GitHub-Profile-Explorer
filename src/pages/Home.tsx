@@ -19,9 +19,6 @@ const HomePage = () => {
 
   return (
     <Box>
-      {/* <Navbar /> */}
-      {/* Uncomment for future theme toggle feature */}
-
       {/* <IconButton
         onClick={() => setDarkMode(!darkMode)}
         sx={{
@@ -37,16 +34,25 @@ const HomePage = () => {
       >
         {darkMode ? <LightMode /> : <DarkMode/>}
       </IconButton> */}
-
-      {/* Navbar */}
-
-      {/* Search Bar */}
-      <Box>
+      {users.length > 1 ? (
+        users.map((user) => (
+          <MuiCard
+            key={user.id}
+            user={{
+              id: user.id,
+              login: user.login,
+              avatar_url: user.avatar_url,
+            }}
+          />
+        ))
+      ) : (
+        // <Box>
         <SearchBar onSearch={handleSearchResults} />
-      </Box>
+        // </Box>
+      )}
 
       {/* User Cards */}
-      <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
+      {/* <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
         {users.length > 0 ? (
           users.map((user) => (
             <MuiCard
@@ -55,7 +61,6 @@ const HomePage = () => {
                 id: user.id,
                 login: user.login,
                 avatar_url: user.avatar_url,
-                // repositories: Math.floor(Math.random() * 50),
               }}
             />
           ))
@@ -74,7 +79,7 @@ const HomePage = () => {
             🤷‍♂️ No users found. Try searching for a different name.
           </Typography>
         )}
-      </Box>
+      </Box> */}
     </Box>
   );
 };
