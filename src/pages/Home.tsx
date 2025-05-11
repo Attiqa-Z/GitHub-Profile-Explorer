@@ -34,25 +34,12 @@ const HomePage = () => {
       >
         {darkMode ? <LightMode /> : <DarkMode/>}
       </IconButton> */}
-      {users.length > 1 ? (
-        users.map((user) => (
-          <MuiCard
-            key={user.id}
-            user={{
-              id: user.id,
-              login: user.login,
-              avatar_url: user.avatar_url,
-            }}
-          />
-        ))
-      ) : (
-        // <Box>
+      <Box>
         <SearchBar onSearch={handleSearchResults} />
-        // </Box>
-      )}
+      </Box>
 
       {/* User Cards */}
-      {/* <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
+      <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
         {users.length > 0 ? (
           users.map((user) => (
             <MuiCard
@@ -79,7 +66,7 @@ const HomePage = () => {
             🤷‍♂️ No users found. Try searching for a different name.
           </Typography>
         )}
-      </Box> */}
+      </Box>
     </Box>
   );
 };
