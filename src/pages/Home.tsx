@@ -1,16 +1,10 @@
 import { useState } from "react";
-// import Navbar from "../components/Navbar";
 import MuiCard from "../components/MuiCard";
 import { Box, Typography } from "@mui/material";
 import SearchBar from "../components/Search";
+
 const HomePage = () => {
   const [users, setUsers] = useState<any[]>([]);
-
-  // Restore theme preference from localStorage
-  // const [darkMode, setDarkMode] = useState(() => {
-  //   const stored = localStorage.getItem("darkMode");
-  //   return stored === "true";
-  // });
 
   // Update user list based on search
   const handleSearchResults = (data: any[]) => {
@@ -19,21 +13,7 @@ const HomePage = () => {
 
   return (
     <Box>
-      {/* <IconButton
-        onClick={() => setDarkMode(!darkMode)}
-        sx={{
-          position: "fixed",
-          top: 10,
-          right: 10,
-          zIndex: 1100,
-          backgroundColor: "#eee",
-          "&:hover": {
-            backgroundColor: "#ccc",
-          },
-        }}
-      >
-        {darkMode ? <LightMode /> : <DarkMode/>}
-      </IconButton> */}
+      {/* Search Bar */}
       <Box>
         <SearchBar onSearch={handleSearchResults} />
       </Box>
