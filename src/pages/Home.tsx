@@ -2,8 +2,10 @@ import { useState } from "react";
 import MuiCard from "../components/MuiCard";
 import { Box, Typography } from "@mui/material";
 import SearchBar from "../components/Search";
+import { useMatch } from "react-router-dom";
 
 const HomePage = () => {
+  const isHomePage = useMatch({ path: "/", end: true });
   const [users, setUsers] = useState<any[]>([]);
 
   // Update user list based on search
@@ -14,8 +16,12 @@ const HomePage = () => {
   return (
     <Box>
       {/* Search Bar */}
-      <Box>
-        <SearchBar onSearch={handleSearchResults} />
+      <Box
+        sx={{
+          visibility: 0,
+        }}
+      >
+        {isHomePage && <SearchBar onSearch={handleSearchResults} />}
       </Box>
 
       {/* User Cards */}
