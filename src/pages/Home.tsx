@@ -16,14 +16,7 @@ const HomePage = () => {
   return (
     <Box>
       {/* Search Bar */}
-      <Box
-        sx={{
-          visibility: 0,
-        }}
-      >
-        {isHomePage && <SearchBar onSearch={handleSearchResults} />}
-      </Box>
-
+      <Box>{isHomePage && <SearchBar onSearch={handleSearchResults} />}</Box>
       {/* User Cards */}
       <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
         {users.length > 0 ? (
