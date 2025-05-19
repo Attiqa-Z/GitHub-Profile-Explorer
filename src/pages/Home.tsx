@@ -3,6 +3,7 @@ import MuiCard from "../components/MuiCard";
 import { Box, Typography } from "@mui/material";
 import SearchBar from "../components/Search";
 import { useMatch } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   const isHomePage = useMatch({ path: "/", end: true });
@@ -46,6 +47,7 @@ const HomePage = () => {
           </Typography>
         )}
       </Box>
+      <Footer />
     </Box>
   );
 };

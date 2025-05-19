@@ -55,11 +55,6 @@ const Navbar: React.FC<NavbarProps> = ({
           sx={{
             color: "#fff",
             cursor: "pointer",
-            // fontWeight: "bold",
-            // "&:hover": {
-            //   textDecoration: "underline",
-            //   color: "#00bcd4",
-            // },
           }}
           // onClick={() => handleButtonClick("/about")}
           onClick={() => handleButtonClick("/About")}

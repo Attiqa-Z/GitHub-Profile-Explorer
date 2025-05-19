@@ -39,13 +39,13 @@ const DetailsPage = () => {
 
   return (
     <Box width="100%" sx={{ mt: 4 }}>
-      {/* Cover Section */}
       <Box
         sx={{
           maxWidth: 1000,
           backgroundColor: "#2c2f48",
           color: "#fff",
           padding: 4,
+          margin: "20px",
           borderRadius: 2,
         }}
       >
@@ -96,9 +96,9 @@ const DetailsPage = () => {
             </Button>
           </Box>
 
-          {/* Right Side: Bio */}
+          {/* Right Side: Bio and Stats */}
           <Box sx={{ flex: 1 }}>
-            <Typography variant="h5" sx={{ mt: 0 }}>
+            <Typography variant="h5">
               {userData?.name || userData?.login}
               <Chip label="User" size="small" color="success" sx={{ ml: 1 }} />
             </Typography>
@@ -113,31 +113,31 @@ const DetailsPage = () => {
             </Typography>
           </Box>
         </Box>
-      </Box>
 
-      {/* Stats Section */}
-      <Box
-        display="flex"
-        justifyContent="center"
-        flexWrap="wrap"
-        gap={3}
-        mt={4}
-      >
-        <StatCard
-          label="Followers"
-          value={userData?.followers}
-          icon={<PeopleIcon />}
-        />
-        <StatCard
-          label="Following"
-          value={userData?.following}
-          icon={<PeopleIcon />}
-        />
-        <StatCard
-          label="Public Repos"
-          value={userData?.public_repos}
-          icon={<AccountTreeIcon />}
-        />
+        {/* Stats Section moved into the main card */}
+        <Box
+          display="flex"
+          justifyContent="center"
+          flexWrap="wrap"
+          gap={3}
+          mt={4}
+        >
+          <StatCard
+            label="Followers"
+            value={userData?.followers}
+            icon={<PeopleIcon />}
+          />
+          <StatCard
+            label="Following"
+            value={userData?.following}
+            icon={<PeopleIcon />}
+          />
+          <StatCard
+            label="Public Repos"
+            value={userData?.public_repos}
+            icon={<AccountTreeIcon />}
+          />
+        </Box>
       </Box>
     </Box>
   );
