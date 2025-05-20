@@ -39,7 +39,12 @@ const About = () => {
               src="https://avatars.githubusercontent.com/Attiqa-Z"
               sx={{ width: 100, height: 100 }}
             />
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h3" gutterBottom>
+              <img
+                src="/images.png"
+                alt="Logo"
+                style={{ height: "40px", width: "40px", margin:"2px" }}
+              />
               GitHub Profile Explorer
             </Typography>
             <Typography variant="body1" align="center">
