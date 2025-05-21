@@ -52,7 +52,7 @@ const About = () => {
               information including followers, repositories, and bio. Built with
               ❤️ by{" "}
               <Link
-                href="https://github.com/YOUR_GITHUB_USERNAME"
+                href="https://github.com/Attiqa-Z"
                 target="_blank"
                 rel="noreferrer"
                 underline="hover"
@@ -62,7 +62,7 @@ const About = () => {
               </Link>
               .
             </Typography>
-            <Button
+            {/* <Button
               variant="outlined"
               href="https://github.com/Attiqa-Z"
               target="_blank"
@@ -78,7 +78,7 @@ const About = () => {
               }}
             >
               Visit My GitHub
-            </Button>
+            </Button> */}
           </Box>
         </CardContent>
       </Card>
