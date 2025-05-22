@@ -62,23 +62,6 @@ const About = () => {
               </Link>
               .
             </Typography>
-            {/* <Button
-              variant="outlined"
-              href="https://github.com/Attiqa-Z"
-              target="_blank"
-              rel="noreferrer"
-              sx={{
-                mt: 2,
-                color: "#fff",
-                borderColor: "#fff",
-                "&:hover": {
-                  borderColor: pink[500],
-                  backgroundColor: pink[500],
-                },
-              }}
-            >
-              Visit My GitHub
-            </Button> */}
           </Box>
         </CardContent>
       </Card>

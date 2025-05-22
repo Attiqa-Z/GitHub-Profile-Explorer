@@ -9,21 +9,20 @@ const Footer = () => {
       sx={{
         width: "100%",
         py: 4,
-        maxHeight:"0px",
+        maxHeight: "0px",
         px: 2,
-        bottom:0,
+        bottom: 0,
         position: "fixed",
-        backgroundColor: "#333", 
+        backgroundColor: "#333",
         color: "white",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-
       }}
     >
       <Typography variant="body2">
-        Copyright &copy; {footerYear} All rights reserved
+        All Copyright &copy; {footerYear} reserved
       </Typography>
     </Box>
   );

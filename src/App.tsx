@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import NotFoundPage from "./components/NotFoundPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import SearchResult from "./components/SearchResult";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,8 @@ function App() {
         { index: true, element: <Home /> },
         { path: "about", element: <About /> },
         { path: "details/:username", element: <DetailsPage /> },
-        { path: "mui-card", element: <MuiCard /> }, 
+        { path: "/search/:username", element: <SearchResult /> },
+        { path: "mui-card", element: <MuiCard /> },
       ],
     },
   ]);

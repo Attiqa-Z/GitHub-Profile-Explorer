@@ -1,0 +1,56 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import MuiCard from "../components/MuiCard";
+const SearchResult = () => {
+  const { username } = useParams();
+  const [users, setUsers] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setError(null);
+        const response = await fetch(
+          `https://api.github.com/search/users?q=${username}`
+        );
+        const data = await response.json();
+        if (data.items) {
+          setUsers(data.items);
+        } else {
+          setUsers([]);
+          setError("No users found.");
+        }
+      } catch (err) {
+        setError("Error fetching data");
+      }
+    };
+
+    fetchUsers();
+  }, [username]);
+
+  return (
+    <Box>
+      <Box display="flex" flexWrap="wrap" justifyContent="center" mt={4}>
+        {error ? (
+          <Typography color="error">{error}</Typography>
+        ) : users.length > 0 ? (
+          users.map((user: any) => (
+            <MuiCard
+              key={user.id}
+              user={{
+                id: user.id,
+                login: user.login,
+                avatar_url: user.avatar_url,
+              }}
+            />
+          ))
+        ) : (
+          <Typography sx={{ mt: 4 }}>Loading...</Typography>
+        )}
+      </Box>
+    </Box>
+  );
+};
+
+export default SearchResult;

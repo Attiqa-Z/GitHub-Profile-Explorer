@@ -1,39 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Box, Button, InputBase } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
-import { searchUser } from "../api/search";
 
 interface SearchBarProps {
-  onSearch: (data: User[]) => void;
+  onSearch: (username: string) => void;
 }
 
-function SearchBar({ onSearch }: SearchBarProps) {
-  const [text, setText] = useState("");
-  const [query, setQuery] = useState("");
-  const { data, isLoading } = useQuery({
-    queryKey: ["search", query],
-    queryFn: () => searchUser(query),
-    enabled: Boolean(query),
-  });
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const [input, setInput] = useState("");
 
-  useEffect(() => {
-    if (!isLoading && data?.items) {
-      onSearch(data.items);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmedInput = input.trim();
+    if (trimmedInput) {
+      onSearch(trimmedInput); 
     }
-  }, [data, isLoading, onSearch]);
-
-  const handleGo = () => {
-    setQuery(text.trim());
   };
 
   const handleClear = () => {
-    setText("");
-    setQuery("");
-    onSearch([]);
+    setInput("");
+    onSearch(""); // Optional: notify parent to clear results
   };
 
   return (
     <Box
+      component="form"
+      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -58,8 +49,8 @@ function SearchBar({ onSearch }: SearchBarProps) {
       >
         <InputBase
           placeholder="Search here."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           sx={{
             flexGrow: 1,
             padding: "8px 12px",
@@ -69,13 +60,11 @@ function SearchBar({ onSearch }: SearchBarProps) {
         />
 
         <Button
-          onClick={handleGo}
+          type="submit"
           variant="contained"
-          disabled={isLoading}
           sx={{
             backgroundColor: "#1e232e",
             color: "white",
-            borderRight: "1px solid white",
             fontWeight: "bold",
             borderRadius: 0,
             "&:hover": {
@@ -84,7 +73,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
             },
           }}
         >
-          {isLoading ? "Searching.." : "GO"}
+          GO
         </Button>
 
         <Button
@@ -105,6 +94,6 @@ function SearchBar({ onSearch }: SearchBarProps) {
       </Box>
     </Box>
   );
-}
+};
 
 export default SearchBar;
