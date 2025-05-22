@@ -13,9 +13,7 @@ import Footer from "../components/Footer";
 const About = () => {
   return (
     <Box>
-      <Navbar onSearch={function (): void {
-        throw new Error("Function not implemented.");
-      } } />
+      <Navbar onSearch={(text) => console.log(text)} />
       <Card
         sx={{
           maxWidth: 700,

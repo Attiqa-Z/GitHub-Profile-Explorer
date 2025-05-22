@@ -37,15 +37,8 @@ const SearchResult = () => {
         {error ? (
           <Typography color="error">{error}</Typography>
         ) : users.length > 0 ? (
-          users.map((user: any) => (
-            <MuiCard
-              key={user.id}
-              user={{
-                id: user.id,
-                login: user.login,
-                avatar_url: user.avatar_url,
-              }}
-            />
+          users.map((user) => (
+        <MuiCard key={user.id} user={user} />
           ))
         ) : (
           <Typography sx={{ mt: 4 }}>Loading...</Typography>

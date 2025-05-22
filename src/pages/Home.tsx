@@ -26,29 +26,7 @@ const HomePage = () => {
       {/* User Cards */}
       <Box display="flex" flexWrap="wrap" justifyContent="center" mt={8}>
         {users.length > 0 ? (
-          users.map((user) => (
-            <SearchResult
-              key={user.id}
-              user={{
-                id: user.id,
-                login: user.login,
-                avatar_url: user.avatar_url,
-              }}
-              //               (property) user: {
-              //     id: any;
-              //     login: any;
-              //     avatar_url: any;
-              // }
-            />
-            // <MuiCard
-            //   key={user.id}
-            //   user={{
-            //     id: user.id,
-            //     login: user.login,
-            //     avatar_url: user.avatar_url,
-            //   }}
-            // />
-          ))
+          users.map((user) => <SearchResult key={user.id} />)
         ) : (
           <Typography
             sx={{
