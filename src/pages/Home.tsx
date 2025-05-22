@@ -8,7 +8,8 @@ import SearchResult from "../components/SearchResult";
 
 const HomePage = () => {
   const isHomePage = useMatch({ path: "/", end: true });
-  const [users, setUsers] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [users] = useState<any[]>([]);
 
   const navigate = useNavigate();
   // Update user list based on search
@@ -33,6 +34,11 @@ const HomePage = () => {
                 login: user.login,
                 avatar_url: user.avatar_url,
               }}
+              //               (property) user: {
+              //     id: any;
+              //     login: any;
+              //     avatar_url: any;
+              // }
             />
             // <MuiCard
             //   key={user.id}

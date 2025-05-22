@@ -1,16 +1,15 @@
 
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar"; // adjust path if needed
 // import Search from "../components/Search"; // adjust path if needed
 
 const Layout = () => {
-  const location = useLocation();
 
   return (
     <>
-      <Navbar />
-      {/* Only show SearchBar on the home page */}
-      {/* {location.pathname === "/" && <Search />} */}
+      <Navbar onSearch={function (): void {
+        throw new Error("Function not implemented.");
+      } } />
       <Outlet />
     </>
   );

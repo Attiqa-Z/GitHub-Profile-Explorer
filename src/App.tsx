@@ -22,7 +22,18 @@ function App() {
         { path: "about", element: <About /> },
         { path: "details/:username", element: <DetailsPage /> },
         { path: "/search/:username", element: <SearchResult /> },
-        { path: "mui-card", element: <MuiCard /> },
+        {
+          path: "mui-card",
+          element: (
+            <MuiCard
+              user={{
+                id: 0,
+                login: "",
+                avatar_url: "",
+              }}
+            />
+          ),
+        },
       ],
     },
   ]);

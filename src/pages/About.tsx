@@ -3,7 +3,6 @@ import {
   Typography,
   Card,
   CardContent,
-  Button,
   Link,
   Avatar,
 } from "@mui/material";
@@ -14,7 +13,9 @@ import Footer from "../components/Footer";
 const About = () => {
   return (
     <Box>
-      <Navbar />
+      <Navbar onSearch={function (): void {
+        throw new Error("Function not implemented.");
+      } } />
       <Card
         sx={{
           maxWidth: 700,

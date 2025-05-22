@@ -8,11 +8,17 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const MuiCard = ({
-  user,
-}: {
-  user: { id: number; login: string; avatar_url: string;};
-}) => {
+// 1. Define the props interface
+interface MuiCardProps {
+  user: {
+    id: number;
+    login: string;
+    avatar_url: string;
+  };
+}
+
+// 2. Use it in the component
+const MuiCard: React.FC<MuiCardProps> = ({ user }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {

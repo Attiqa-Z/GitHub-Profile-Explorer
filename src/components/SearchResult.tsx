@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import MuiCard from "../components/MuiCard";
 const SearchResult = () => {
   const { username } = useParams();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [users, setUsers] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,6 +22,7 @@ const SearchResult = () => {
           setUsers([]);
           setError("No users found.");
         }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError("Error fetching data");
       }
