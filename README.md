@@ -3,7 +3,7 @@
 Welcome to GitHub Profile Explorer — a sleek and responsive app that allows you to search and explore GitHub user profiles. Enter any username to instantly view profile information like avatar, login name, and explore more details with one click.
 
 🌐 **Live Demo**:  
-👉 [Click here to view the app](https://your-vercel-app-link.vercel.app)
+👉 [Click here to view the app](https://git-hub-profile-explorer-kappa.vercel.app/)
 
 ---
 
@@ -26,6 +26,9 @@ Welcome to GitHub Profile Explorer — a sleek and responsive app that allows yo
 - ▲ **Vercel** – For seamless deployment  
 
 ---
+
+![Github](/public/github.png)
+
 
 ## 🚀 Getting Started (Local Setup)
 
