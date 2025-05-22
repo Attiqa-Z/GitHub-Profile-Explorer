@@ -39,3 +39,5 @@ git clone https://github.com/Attiqa-Z/GitHub-Profile-Explorer.git
 cd GitHub-Profile-Explorer
 npm install
 npm run dev
+
+Made with ❤️ by [Attiqa Zaki](https://github.com/Attiqa-Z)
